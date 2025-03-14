@@ -280,6 +280,28 @@ button {
       border-radius: 10px;
       background-repeat: no-repeat;
       background-size: cover;
+      & .expand__toggle {
+        display: none;
+      }
+      & .expand__button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 7px 40px;
+        border-radius: 100px;
+        background: none;
+        color: $yellow;
+        border: 2px solid $yellow;
+        cursor: pointer;
+      }
+      &:has(.expand__toggle:checked) {
+        & .content__container__element__description {
+          max-height: fit-content;
+          line-clamp: unset;
+          -webkit-line-clamp: unset;
+        }
+      }
+
       &__title {
         max-width: 780px;
         font-size: 74px;
@@ -291,6 +313,15 @@ button {
       }
       &__description {
         font-size: 26px;
+        overflow: hidden;
+        overflow: hidden;
+        white-space: pre-line;
+        display: -webkit-box;
+        line-clamp: 1;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        transition: max-height 0.5s ease, opacity 0.5s ease;
+        max-height: 28px;
         @media (max-width: $layout-breakpoint-medium) {
           font-size: 16px;
         }
