@@ -6,7 +6,7 @@ export default function Header({ onMenuClick }) {
       <div className="header__logo">
         <a href="/" title="logo" className="header__logo__link">
           <img
-            src="/logo-1248w.png"
+            src={`logo-1248w.png`}
             alt="logo"
             srcSet="
     /logo-768w.png 360w, 
@@ -39,7 +39,7 @@ export default function Header({ onMenuClick }) {
         aria-label="Toggle Navigation"
         onClick={onMenuClick}
       >
-        <img src="/menu.svg" alt="burger menu" width="30" height="38" />
+        <img src="menu.svg" alt="burger menu" width="30" height="38" />
       </button>
     </header>
   );
