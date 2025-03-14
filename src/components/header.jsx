@@ -6,12 +6,12 @@ export default function Header({ onMenuClick }) {
       <div className="header__logo">
         <a href="/" title="logo" className="header__logo__link">
           <img
-            src={`logo-1248w.png`}
+            src="logo-1248w.png"
             alt="logo"
             srcSet="
-    /logo-768w.png 360w, 
-    /logo-1248w.png 768w, 
-    /logo-1248w.png 1248w"
+    logo-768w.png 360w, 
+    logo-1248w.png 768w, 
+    logo-1248w.png 1248w"
             sizes="(max-width: 360px) 100%, 
          (max-width: 768px) 100%, 
          100%"
