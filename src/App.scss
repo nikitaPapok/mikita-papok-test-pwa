@@ -114,7 +114,7 @@ button {
 .burger-menu {
   position: fixed;
   top: 0;
-  right: -100%; // Hidden off-screen
+  right: -100%;
   width: 40%;
   height: 100vh;
   background: $black;
@@ -165,19 +165,20 @@ button {
 }
 
 .intro-section {
-  padding: 80px;
+  padding: 0 80px;
   height: 50vh;
   background: url('../public/earth.webp') no-repeat,
     url('../public/description-section.webp') no-repeat;
   background-position: center right 40px, left;
   background-size: 300px 300px, cover;
+  display: flex;
+  align-items: center;
   &__article {
     display: flex;
     max-width: 694px;
     gap: 22px;
     flex-direction: column;
     align-items: self-start;
-    margin-top: 10px;
     &__title {
       font-size: 72px;
 
@@ -196,10 +197,9 @@ button {
   }
 
   @media (max-width: $layout-breakpoint-medium) {
-    padding: 30px;
-    background-position: right -50px center, left;
+    padding: 0 30px;
+    background-position: right -100px center, left;
     &__article {
-      margin-top: 70px;
       max-width: 412px;
       &__title {
         font-size: 48px;
@@ -211,10 +211,12 @@ button {
   }
   @media (max-width: $layout-breakpoint-small) {
     background-size: 250px 250px, cover;
-    background-position: top -50px center, left;
+    padding: 0;
+    justify-content: center;
+    background-position: top -100px center, left;
     &__article {
-      margin-top: 220px;
       max-width: 298px;
+      display: flex;
       align-items: center;
       &__title {
         font-size: 36px;
@@ -280,30 +282,6 @@ button {
       border-radius: 10px;
       background-repeat: no-repeat;
       background-size: cover;
-      & .expand__toggle {
-        display: none;
-      }
-      & .expand__button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 7px 40px;
-        border-radius: 100px;
-        background: none;
-        color: $yellow;
-        border: 2px solid $yellow;
-        cursor: pointer;
-        &:hover {
-          opacity: 0.6;
-        }
-      }
-      &:has(.expand__toggle:checked) {
-        & .content__container__element__description {
-          max-height: fit-content;
-          line-clamp: unset;
-          -webkit-line-clamp: unset;
-        }
-      }
 
       &__title {
         max-width: 780px;
@@ -316,15 +294,6 @@ button {
       }
       &__description {
         font-size: 26px;
-        overflow: hidden;
-        overflow: hidden;
-        white-space: pre-line;
-        display: -webkit-box;
-        line-clamp: 1;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-        transition: max-height 0.5s ease, opacity 0.5s ease;
-        max-height: 28px;
         @media (max-width: $layout-breakpoint-medium) {
           font-size: 16px;
         }
@@ -350,6 +319,42 @@ button {
   flex-direction: column;
   align-items: flex-start;
   gap: 18px;
+  & .expand__toggle {
+    display: none;
+  }
+  & .expand__button span {
+    &.expand__button--read-less {
+      display: none;
+    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    background: none;
+    color: $yellow;
+    border: none;
+    padding: 0;
+    color: $yellow;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+  &:has(.expand__toggle:checked) {
+    & .expand__button {
+      &--read-less {
+        display: inline;
+      }
+      &--read-more {
+        display: none;
+      }
+    }
+    & .description__container__text {
+      max-height: fit-content;
+      line-clamp: unset;
+      -webkit-line-clamp: unset;
+    }
+  }
   &__title {
     font-size: 32px;
   }
@@ -357,6 +362,14 @@ button {
     font-size: 20px;
     color: #777;
     line-height: 100%;
+    overflow: hidden;
+    white-space: pre-line;
+    display: -webkit-box;
+    line-clamp: 1;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    max-height: 28px;
   }
   @media (max-width: $layout-breakpoint-medium) {
     margin-top: 55px;

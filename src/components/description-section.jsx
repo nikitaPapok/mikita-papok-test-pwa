@@ -1,11 +1,10 @@
-import Button from "./button";
-
 export default function DescriptionSection() {
   return (
     <article className="description__container">
       <h3 className="description__container__title">
         Embark on a space journey
       </h3>
+      <input type="checkbox" id="info" className="expand__toggle" />
       <p className="description__container__text">
         Travelling into space is one of the most exciting and unforgettable
         adventures that can change your life forever. And if you have ever
@@ -18,7 +17,10 @@ export default function DescriptionSection() {
         fully enjoy your adventure in space. We offer various options for space
         excursions.
       </p>
-      <Button variant="tertiary" />
+      <label htmlFor="info" className="expand__button">
+        <span className="expand__button--read-more">Read more</span>
+        <span className="expand__button--read-less">Read less</span>
+      </label>
     </article>
   );
 }
